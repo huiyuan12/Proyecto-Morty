@@ -64,7 +64,7 @@ const personajesMap = personajesMapeados(personajes,filters);
     <div className="flex justify-between mb-10">
     <button className={ `${page <= 1 ? "cursor-not-allowed": ""} bg-blue-600 rounded-lg p-3 uppercase font-bold text-white hover:bg-blue-500`} onClick={()=>{if(page <= 1) return; else setPage(page-1)}}> Anterior </button>
     <p className='text-4xl'>Pagina: {page} </p>
-    <button className={`${page >= 42 ? "cursor-not-allowed": "" }bg-blue-600 rounded-lg p-3 uppercase font-bold text-white hover:bg-blue-500`} onClick={()=>{if(page >= 42) return; else setPage(page+1)}}> Siguiente </button>
+    <button className={`${page > 41 ? "cursor-not-allowed": "" } bg-blue-600 rounded-lg p-3 uppercase font-bold text-white hover:bg-blue-500`} onClick={()=>{if(page >= 42) return; else setPage(page+1)}}> Siguiente </button>
     </div>
     <main>
     <ListadoPersonajes personajes ={personajesMap} changeModal={changeModal} setPersonaje={setPersonaje}/>
