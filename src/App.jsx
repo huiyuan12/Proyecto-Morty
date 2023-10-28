@@ -59,18 +59,18 @@ function App() {
   
 const personajesMap = personajesMapeados(personajes,filters);
   return (
-    <>
+    <div className='container mx-auto px-5'>
     <Header setFilters={setFilters} filters = {filters}/>
     <div className="flex justify-between mb-10">
-    <button className={ `${page <= 1 ? "cursor-not-allowed": ""} bg-blue-600 rounded-lg p-3 uppercase font-bold text-white hover:bg-blue-500`} onClick={()=>{if(page <= 1) return; else setPage(page-1)}}> Anterior </button>
-    <p className='text-4xl'>Pagina: {page} </p>
-    <button className={`${page > 41 ? "cursor-not-allowed": "" } bg-blue-600 rounded-lg p-3 uppercase font-bold text-white hover:bg-blue-500`} onClick={()=>{if(page >= 42) return; else setPage(page+1)}}> Siguiente </button>
+    <button className={ `${page <= 1 ? "cursor-not-allowed hover:bg-none bg-slate-700": "hover:bg-blue-500"} bg-blue-600 px-2 py-2  uppercase font-bold text-white `} onClick={()=>{if(page <= 1) return; else setPage(page-1)}}> Anterior </button>
+    <p className='text-xl'>Pagina: {page} </p>
+    <button className={`${page > 41 ? "cursor-not-allowed hover:bg-none bg-slate-700": "hover:bg-blue-500" } bg-blue-600  px-2 py-2  uppercase font-bold text-white `} onClick={()=>{if(page >= 42) return; else setPage(page+1)}}> Siguiente </button>
     </div>
-    <main>
+    <main className=''>
     <ListadoPersonajes personajes ={personajesMap} changeModal={changeModal} setPersonaje={setPersonaje}/>
      {modal && <Modal isOpen={modal} style={customStyles}><ModalPersonaje changeModal={changeModal} personaje={personaje}/></Modal> }
     </main>
-    </>
+    </div>
   )
 }
 
